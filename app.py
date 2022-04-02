@@ -8,7 +8,7 @@ from flaskr.messages import bp as messages
 from flaskr.db import init_db_command
 
 
-application = Flask(__name__)
+application = Flask(__name__, static_folder='static', template_folder='templates')
 application.config.from_mapping(
     SECRET_KEY='dev',
     DATABASE=os.path.join(application.instance_path, 'flaskr.sqlite'),
