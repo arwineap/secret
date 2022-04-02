@@ -8,7 +8,7 @@
             "name": "Python: Flask",
             "type": "python",
             "request": "launch",
-            "module": "flask",
+            "program": "${workspaceRoot}/app.py",
             "env": {
                 "FLASK_APP": "app.py",
                 "FLASK_ENV": "development"
