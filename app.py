@@ -4,6 +4,7 @@ from flask import g
 import os
 from flaskr.auth import bp as auth_bp
 from flaskr.blog import bp as blog_bp
+from flaskr.messages import bp as messages
 from flaskr.db import init_db_command
 
 
@@ -14,6 +15,7 @@ application.config.from_mapping(
 )
 application.register_blueprint(auth_bp)
 application.register_blueprint(blog_bp)
+application.register_blueprint(messages)
 
 @application.errorhandler(404)
 def not_found(error):
@@ -21,5 +23,5 @@ def not_found(error):
     return "404 not found", 404
 
 if __name__ == '__main__':
-    # init_db_command()
+#    init_db_command()
     application.run(port=8000, host='0.0.0.0')
