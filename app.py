@@ -6,13 +6,14 @@ from flaskr.auth import bp as auth_bp
 from flaskr.blog import bp as blog_bp
 from flaskr.messages import bp as messages
 from flaskr.db import init_db_command
-
+from flaskr.db import init_app
 
 application = Flask(__name__, static_folder='static', template_folder='templates')
 application.config.from_mapping(
     SECRET_KEY='dev',
     DATABASE=os.path.join(application.instance_path, 'flaskr.sqlite'),
 )
+init_app(application)
 application.register_blueprint(auth_bp)
 application.register_blueprint(blog_bp)
 application.register_blueprint(messages)
